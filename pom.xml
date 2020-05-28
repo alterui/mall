@@ -8,7 +8,7 @@
     <artifactId>mall</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <description>商品父服务</description>
+    <description>商品总服务</description>
 
     <modules>
         <module>mall-coupon</module>
