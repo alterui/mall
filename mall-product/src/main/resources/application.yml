@@ -1,5 +1,5 @@
 server:
-  port: 9000
+  port: 10000
 
 spring:
   datasource:
@@ -7,6 +7,13 @@ spring:
     password: root
     url: jdbc:mysql://192.168.43.128:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: mall-product
+
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
 
 
 mybatis-plus:

@@ -7,10 +7,16 @@ spring:
     password: root
     url: jdbc:mysql://192.168.43.128/gulimall_ums?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: mall-member
+
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
     db-config:
       id-type: auto
-
