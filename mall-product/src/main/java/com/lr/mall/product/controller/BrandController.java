@@ -4,12 +4,9 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.lr.mall.product.feign.CouponFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.lr.mall.product.entity.BrandEntity;
 import com.lr.mall.product.service.BrandService;
@@ -30,6 +27,19 @@ import com.lr.common.utils.R;
 public class BrandController {
     @Autowired
     private BrandService brandService;
+
+    @Autowired
+    private CouponFeignService couponFeignService;
+
+    @GetMapping("/getPrice")
+    public R getBrandAndMemberPrices() {
+        BrandEntity brandEntity = new BrandEntity();
+        brandEntity.setDescript("华为Mate30手机");
+
+        R info = couponFeignService.info(1L);
+
+        return R.ok().put("brand", brandEntity).put("memberprice", info.get("memberPrice"));
+    }
 
     /**
      * 列表
