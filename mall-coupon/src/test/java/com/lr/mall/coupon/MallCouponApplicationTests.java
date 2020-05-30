@@ -20,7 +20,6 @@ class MallCouponApplicationTests {
 
         MemberPriceEntity memberPriceEntity = new MemberPriceEntity();
         memberPriceEntity.setMemberLevelName("V8等级");
-
         memberPriceService.save(memberPriceEntity);
 
     }
