@@ -5,11 +5,9 @@ import java.util.Map;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.*;
 
 import com.lr.mall.product.entity.AttrAttrgroupRelationEntity;
 import com.lr.mall.product.service.AttrAttrgroupRelationService;
@@ -25,11 +23,23 @@ import com.lr.common.utils.R;
  * @email liurui@gmail.com
  * @date 2020-05-29 22:35:31
  */
+@RefreshScope
 @RestController
 @RequestMapping("product/attrattrgrouprelation")
 public class AttrAttrgroupRelationController {
     @Autowired
     private AttrAttrgroupRelationService attrAttrgroupRelationService;
+
+    @Value("${product.user.name}")
+    private String name;
+
+    @Value("${product.user.age}")
+    private Integer age;
+
+    @GetMapping("/get")
+    public R getUserInfo() {
+        return R.ok().put("name", name).put("age", age);
+    }
 
     /**
      * 列表
