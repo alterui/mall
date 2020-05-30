@@ -75,6 +75,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  *    并添加配置。
  *    4). 添加@RefreshScope刷新注解。
  *    5). nacos配置中心的优先级大于application.properties中的配置。
+ *    6).细节描述
+ *         1.命名空间
+ *         2.配置集
+ *         3.配置集分组
+ *         4.配置集ID
+ *
  *
  *
  */
