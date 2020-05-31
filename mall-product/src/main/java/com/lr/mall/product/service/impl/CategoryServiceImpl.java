@@ -35,10 +35,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     @Override
     public List<CategoryEntity> listWithTree() {
 
-        //1.查出所有分类
         List<CategoryEntity> categoryEntityList = baseMapper.selectList(null);
-
-        //2.查出所有的一级菜单
         return categoryEntityList.stream()
                 .filter(e -> Objects.equals(e.getParentCid(), 0L))
                 .peek(e -> e.setChild(getCategoryAndChild(e, categoryEntityList)))
