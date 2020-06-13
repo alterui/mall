@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.security.RunAs;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
