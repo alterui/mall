@@ -22,6 +22,7 @@
         <module>mall-gateway</module>
         <module>mall-es</module>
         <module>mall-pattern</module>
+        <module>mall-test</module>
     </modules>
 
 
