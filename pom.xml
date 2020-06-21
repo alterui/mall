@@ -23,6 +23,7 @@
         <module>mall-es</module>
         <module>mall-pattern</module>
         <module>mall-test</module>
+        <module>mall-redisson</module>
     </modules>
 
 
