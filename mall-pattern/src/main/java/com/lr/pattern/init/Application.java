@@ -16,30 +16,31 @@ import java.util.stream.Collectors;
  * @date 2020/6/8 4:35 下午
  */
 public class Application {
+
     public static void main(String[] args) {
 
-        String first = "{\n" +
-                "\t\"title\":\"liurui\",\n" +
-                "\t\"pageNumber\":1,\n" +
-                "\t\"pageSize\":10\n" +
-                "}";
+        String name = "【仟寻】你好，{$var}。{$var}将于{$var}{$var}参加{$var}的面试。候选人联系方式：{$var}，谢谢！";
+        String value = "interviewerName，candidateName,interviewTime,interviewType,interviewPositionTitle,candidateMobile";
+
+        Map<String,String> params = new HashMap<>();
+        params.put("interviewerName","面试官,刘瑞");
+        params.put("candidateName","候选人永兵");
+        params.put("interviewTime","2019-03-20 12:00");
+        params.put("interviewType","远程");
+        params.put("interviewPositionTitle","Java工程师");
+        params.put("interviewAddress"," 地址：上海");
+        params.put("candidateMobile","18019261955");
+
+        String[] split = value.split("[,，]");
+
+        for (String v : split) {
+            if (params.get(v) != null) {
+                name = name.replaceFirst("\\{\\$var\\}", params.get(v));
+            }
+        }
 
 
-       // System.out.println(first);
-        System.out.println();
-        String substring = first.substring(0, first.length() - 1);
-        substring = substring + ",";
+        System.out.println(name);
 
-
-        Student student = new Student(1, "as");
-        String string = JSON.toJSONString(student);
-        System.out.println(string);
-        String substring1 = string.substring(1);
-        System.out.println(substring1);
-
-        substring = substring + substring1;
-
-
-        System.out.println(substring);
     }
 }
