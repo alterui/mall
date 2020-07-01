@@ -77,6 +77,11 @@ public class Application {
                 Executors.defaultThreadFactory(),
                 new ThreadPoolExecutor.AbortPolicy()
         );
+        threadPoolExecutor.execute(new Runnable01());
+
+
+        int i = threadPoolExecutor.prestartAllCoreThreads();
+        System.out.println("num:"+i);
 
 
     }
