@@ -25,6 +25,7 @@
         <module>mall-test</module>
         <module>mall-redisson</module>
         <module>mall-spring</module>
+        <module>spring-source</module>
     </modules>
 
 
