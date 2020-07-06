@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author liurui
  * @date 2020/7/6 22:04
@@ -26,6 +29,8 @@ public class IndexController {
                 "}";
 
         SmsSenderFormVO smsSenderFormVO = JSON.parseObject(json, SmsSenderFormVO.class);
+        List<SmsSenderFormVO> list = new ArrayList<>();
+
 
 
         //log.info("smsSenderFormVO is={}",JSON.toJSONString(smsSenderFormVO));
