@@ -8,8 +8,6 @@
     </bean>
 
     <bean id="indexService" class="com.lr.service.IndexService">
-        <property name="indexDao" ref="indexDao">
-
-        </property>
+       <constructor-arg ref="indexDao"/>
     </bean>
 </beans>

@@ -7,12 +7,14 @@ import com.lr.dao.IndexDao;
  * @date 2020/7/4 16:51
  */
 public class IndexService {
-    private IndexDao indexDao;
+    private final IndexDao indexDao;
+
+    public IndexService(IndexDao indexDao) {
+        this.indexDao = indexDao;
+    }
     public void test() {
         indexDao.test();
     }
 
-    public void setIndexDao(IndexDao indexDao) {
-        this.indexDao = indexDao;
-    }
+
 }
