@@ -10,18 +10,38 @@ import java.util.concurrent.atomic.AtomicStampedReference;
  */
 public class Application {
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args) throws Exception {
 
         final AtomicInteger count = new AtomicInteger(5);
         for (int i = 0; i < 2; i++) {
-            Thread.sleep(20);
+
 
             Thread thread = new Thread(()->{
-                count.compareAndSet(5, 10);
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                boolean b = count.compareAndSet(5, 10);
+                System.out.println(Thread.currentThread().getName() + ":" + b);
             });
-            System.out.println(Thread.currentThread().getName() + ":" + count);
             thread.start();
+
         }
+
+        Thread thread = new Thread(() -> {
+
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            boolean b = count.compareAndSet(10, 5);
+            System.out.println(Thread.currentThread().getName() + ":" + b);
+        });
+        thread.start();
+
+
 
 
 
