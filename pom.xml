@@ -26,6 +26,7 @@
         <module>mall-redisson</module>
         <module>mall-spring</module>
         <module>spring-source</module>
+        <module>mall-concurrent</module>
     </modules>
 
 
