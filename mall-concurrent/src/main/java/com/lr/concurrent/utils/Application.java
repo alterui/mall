@@ -12,7 +12,7 @@ public class Application {
 
     public static void main(String[] args) throws Exception {
 
-        final AtomicInteger count = new AtomicInteger(5);
+        final AtomicStampedReference<Integer> count = new AtomicStampedReference<>(5,1);
         for (int i = 0; i < 2; i++) {
 
 
@@ -22,7 +22,7 @@ public class Application {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                boolean b = count.compareAndSet(5, 10);
+                boolean b = count.compareAndSet(5, 10,1,2);
                 System.out.println(Thread.currentThread().getName() + ":" + b);
             });
             thread.start();
@@ -36,7 +36,7 @@ public class Application {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            boolean b = count.compareAndSet(10, 5);
+            boolean b = count.compareAndSet(10, 5, count.getStamp(), count.getStamp() + 1);
             System.out.println(Thread.currentThread().getName() + ":" + b);
         });
         thread.start();
