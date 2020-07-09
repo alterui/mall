@@ -10,6 +10,7 @@ import java.util.concurrent.atomic.AtomicStampedReference;
  */
 public class Application {
 
+
     public static void main(String[] args) throws Exception {
 
         final AtomicStampedReference<Integer> count = new AtomicStampedReference<>(5,1);
