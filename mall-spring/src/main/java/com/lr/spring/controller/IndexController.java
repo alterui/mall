@@ -25,16 +25,22 @@ public class IndexController {
 
 
         for (int i = 0; i < 1; i++) {
-            service.submit(()->{
+
 
                 List<Student> students = getList();
-                Map<Integer, Student> map = students
+               /* Map<Integer, Student> map = students
                         .stream()
-                        .collect(Collectors.toMap(Student::getAge, Function.identity(), (a, b) -> b));
+                        .collect(Collectors.toMap(Student::getAge, Function.identity(), (a, b) -> b));*/
        /* Map<Integer, String> map = students.
                 stream()
                 .filter(e->Objects.nonNull(e.getAge()))
                 .collect(Collectors.toMap(e -> e.getAge(), e -> e.getCity(), (a, b) -> b));*/
+
+
+                Map<Integer, List<Student>> map = students
+                        .stream()
+                        .filter(e->Objects.nonNull(e.getAge()))
+                        .collect(Collectors.groupingBy(e -> e.getAge()));
                 map.forEach((k, v) -> {
                     System.out.println("K:" + k + ",v:" + v);
                 });
@@ -62,7 +68,7 @@ public class IndexController {
 
         List<Integer> collect = students.stream().map(e -> e.getAge()).collect(Collectors.toList());
         collect.forEach(System.out::println);*/
-            });
+
         }
 
 
@@ -85,7 +91,7 @@ public class IndexController {
         students.add(new Student(getUUID(), 11, "wang","sh"));
         students.add(new Student());
         students.add(new Student());
-        students.forEach(System.out::println);
+        //students.forEach(System.out::println);
         return students;
 
     }
