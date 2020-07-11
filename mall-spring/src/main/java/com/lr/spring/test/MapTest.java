@@ -51,7 +51,7 @@ public class MapTest {
         list.parallelStream().forEach(e->{
             map.put(e.getAge(), e.getSize());
             try {
-                Thread.sleep(10);
+                Thread.sleep(200);
             } catch (InterruptedException interruptedException) {
                 interruptedException.printStackTrace();
             }
