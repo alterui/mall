@@ -84,11 +84,11 @@ public class IndexController {
 
 
 
-        students.add(new Student(getUUID(), 10, "tom","sh"));
-        students.add(new Student(getUUID(), 11, "li","xz"));
-        students.add(new Student(getUUID(), 12, "liu","nj"));
-        students.add(new Student(getUUID(), 13, "riu","bj"));
-        students.add(new Student(getUUID(), 11, "wang","sh"));
+        students.add(new Student(getUUID(), 10, "tom","sh",1));
+        students.add(new Student(getUUID(), 11, "li","xz",1));
+        students.add(new Student(getUUID(), 12, "liu","nj",2));
+        students.add(new Student(getUUID(), 13, "riu","bj",3));
+        students.add(new Student(getUUID(), 11, "wang","sh",4));
         students.add(new Student());
         students.add(new Student());
         //students.forEach(System.out::println);
