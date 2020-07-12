@@ -1,4 +1,4 @@
-package com.lr;
+package com.lr.start;
 
 import com.lr.service.IndexService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
