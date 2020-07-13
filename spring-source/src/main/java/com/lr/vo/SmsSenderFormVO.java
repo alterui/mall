@@ -1,4 +1,4 @@
-package com.lr.dao;
+package com.lr.vo;
 
 import lombok.Data;
 import lombok.Getter;

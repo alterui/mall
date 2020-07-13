@@ -1,7 +1,7 @@
 package com.lr.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.lr.dao.SmsSenderFormVO;
+import com.lr.vo.SmsSenderFormVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
