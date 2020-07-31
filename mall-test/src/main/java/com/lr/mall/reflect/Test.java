@@ -32,11 +32,9 @@ public class Test extends Person<Student>{
             if (first.isPresent()) {
                 Class<?> aClass = first.get();
 
-                if (aClass != null) {
-                    Field[] fields = aClass.getDeclaredFields();
-                    for (Field filed : fields) {
-                        System.out.println(filed);
-                    }
+                Field[] fields = aClass.getDeclaredFields();
+                for (Field filed : fields) {
+                    System.out.println(filed);
                 }
             }
 
