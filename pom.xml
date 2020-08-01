@@ -27,6 +27,7 @@
         <module>mall-spring</module>
         <module>spring-source</module>
         <module>mall-concurrent</module>
+        <module>spring-aop</module>
     </modules>
 
 
