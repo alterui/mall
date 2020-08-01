@@ -8,8 +8,18 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class IndexDao {
+    public void query(String a,Integer b){
+        System.out.println("query2");
+
+    }
+
+    public void query(String a){
+        System.out.println("query1");
+
+    }
+
     public void query(){
-        System.out.println("query");
+        System.out.println("query3");
 
     }
 }

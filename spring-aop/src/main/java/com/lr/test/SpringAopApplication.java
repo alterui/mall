@@ -15,6 +15,9 @@ public class SpringAopApplication {
                 new AnnotationConfigApplicationContext(SpringAopConfiguration.class);
 
         IndexDao indexDao = annotationConfigApplicationContext.getBean(IndexDao.class);
+        indexDao.query("",1);
+        indexDao.query("");
         indexDao.query();
+
     }
 }
