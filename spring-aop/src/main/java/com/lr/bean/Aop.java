@@ -69,10 +69,12 @@ public class Aop {
      */
     @Around("pointCutTarget()")
     public void around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        System.out.println("aaa");
+        System.out.println("方法执行前会执行");
+        // 得到方法执行的参数
         Object[] args = proceedingJoinPoint.getArgs();
 
         try {
+            //方法真正的执行
             proceedingJoinPoint.proceed(args);
         } catch (Throwable throwable) {
             System.out.println(throwable.getMessage());
@@ -82,7 +84,7 @@ public class Aop {
             proceedingJoinPoint.proceed(args);
         }
 
-        System.out.println("bbb");
+        System.out.println("方法执行完，会执行到这里...");
 
     }
 
