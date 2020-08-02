@@ -39,7 +39,21 @@ public class Aop {
     @Pointcut("args(java.lang.String,*)")
     public void pointCutArgs(){}
 
-    @Before("pointCutWithin()")
+    /**
+     * this ----> 是否使用代理对象，如果开启代理对象，则生效。
+     * 通过  @EnableAspectJAutoProxy(proxyTargetClass = true ) 开启代理对象
+     */
+    @Pointcut("this(com.lr.dao.IndexDao)")
+    public void pointCutThis(){}
+
+
+    /**
+     * target ----->  目标对象。
+     */
+    @Pointcut("target(com.lr.dao.IndexDao)")
+    public void pointCutTarget(){}
+
+    @Before("pointCutTarget()")
     public void before() {
         System.out.println("before");
     }
