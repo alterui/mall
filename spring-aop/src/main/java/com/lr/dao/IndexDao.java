@@ -16,6 +16,8 @@ public class IndexDao implements Dao {
 
     @Override
     public void query(String a) {
-        System.out.println("query2");
+        int i = 5 / Integer.parseInt(a);
+
+        System.out.println(a);
     }
 }
