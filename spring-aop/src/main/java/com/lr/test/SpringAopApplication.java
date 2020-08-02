@@ -23,9 +23,10 @@ public class SpringAopApplication {
 
         Dao indexDao = (Dao) annotationConfigApplicationContext.getBean("indexDao");
 
-        System.out.println(indexDao instanceof Proxy);
-        System.out.println(indexDao instanceof IndexDao);
-        indexDao.query("");
+   /*     System.out.println(indexDao instanceof Proxy);
+        System.out.println(indexDao instanceof IndexDao);*/
+        indexDao.query("0");
+        System.out.println("-------------------------------------------------------");
         indexDao.query();
         /**
          * Proxy(代理对象)的产生过程

@@ -1,10 +1,14 @@
 package com.lr.bean;
 
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
+
+import java.util.stream.Stream;
 
 /**
  * 定义一个切面
@@ -53,9 +57,33 @@ public class Aop {
     @Pointcut("target(com.lr.dao.IndexDao)")
     public void pointCutTarget(){}
 
-    @Before("pointCutTarget()")
+   /* @Before("pointCutTarget()")
     public void before() {
         System.out.println("before");
+    }*/
+
+    /**
+     *
+     * @param proceedingJoinPoint
+     * @throws Throwable
+     */
+    @Around("pointCutTarget()")
+    public void around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        System.out.println("aaa");
+        Object[] args = proceedingJoinPoint.getArgs();
+
+        try {
+            proceedingJoinPoint.proceed(args);
+        } catch (Throwable throwable) {
+            System.out.println(throwable.getMessage());
+            if (args.length != 0) {
+                args[0] = "1";
+            }
+            proceedingJoinPoint.proceed(args);
+        }
+
+        System.out.println("bbb");
+
     }
 
 
