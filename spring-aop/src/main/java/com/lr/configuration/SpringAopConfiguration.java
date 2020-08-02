@@ -11,6 +11,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  */
 @Configuration
 @ComponentScan("com.lr")
-@EnableAspectJAutoProxy //启用aspectj自动代理
+//启用aspectj自动代理
+@EnableAspectJAutoProxy(proxyTargetClass = false)
 public class SpringAopConfiguration {
 }
