@@ -39,7 +39,7 @@ public class Aop {
     @Pointcut("args(java.lang.String,*)")
     public void pointCutArgs(){}
 
-    @Before("pointCutExecution()")
+    @Before("pointCutWithin()")
     public void before() {
         System.out.println("before");
     }

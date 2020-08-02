@@ -7,19 +7,15 @@ import org.springframework.stereotype.Repository;
  * @date 2020/8/1 15:18
  */
 @Repository
-public class IndexDao {
-    public void query(String a,Integer b){
-        System.out.println("query2");
+public class IndexDao implements Dao {
 
-    }
-
-    public void query(String a){
+    @Override
+    public void query() {
         System.out.println("query1");
-
     }
 
-    public void query(){
-        System.out.println("query3");
-
+    @Override
+    public void query(String a) {
+        System.out.println("query2");
     }
 }
