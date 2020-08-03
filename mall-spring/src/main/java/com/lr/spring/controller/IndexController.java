@@ -30,7 +30,12 @@ public class IndexController {
         MeiTuanBindProcessor channel = (MeiTuanBindProcessor) bindService.getChannel();
         System.out.println(channel.getMsg());
         System.out.println(channel.get());
+    }
 
+    @GetMapping("/getValue")
+    public String getValue() {
+        int i = 5 / 0;
+        return "hello";
     }
 
 
