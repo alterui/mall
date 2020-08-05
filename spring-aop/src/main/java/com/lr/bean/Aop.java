@@ -8,6 +8,8 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
 /**
@@ -70,6 +72,7 @@ public class Aop {
     @Around("pointCutTarget()")
     public void around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         System.out.println("方法执行前会执行");
+
         // 得到方法执行的参数
         Object[] args = proceedingJoinPoint.getArgs();
 
