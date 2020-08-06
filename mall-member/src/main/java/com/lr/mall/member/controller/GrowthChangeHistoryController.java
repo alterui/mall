@@ -1,9 +1,13 @@
 package com.lr.mall.member.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Map;
 
 
+import com.lr.mall.member.entity.MemberEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,11 +39,18 @@ public class GrowthChangeHistoryController {
      * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("member:growthchangehistory:list")
-    public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = growthChangeHistoryService.queryPage(params);
+    public MemberEntity list(){
 
-        return R.ok().put("page", page);
+        MemberEntity memberEntity = new MemberEntity();
+        SimpleDateFormat format = new SimpleDateFormat("yyy-MM-dd HH:mm:ss");
+        try {
+            Date date = format.parse("2020-08-06 19:56:23");
+            memberEntity.setBirth(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+       return memberEntity;
     }
 
 
