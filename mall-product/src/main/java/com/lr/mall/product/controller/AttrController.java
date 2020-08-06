@@ -4,12 +4,10 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.lr.mall.product.feign.MemberEntity;
+import com.lr.mall.product.feign.MemberFeginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.lr.mall.product.entity.AttrEntity;
 import com.lr.mall.product.service.AttrService;
@@ -31,15 +29,23 @@ public class AttrController {
     @Autowired
     private AttrService attrService;
 
+    @Autowired
+    private MemberFeginService memberFeginService;
+
+    @PostMapping("/get")
+    public void get(@RequestBody MemberEntity entity) {
+        System.out.println(entity);
+    }
+
     /**
      * 列表
      */
     @RequestMapping("/list")
     //@RequiresPermissions("product:attr:list")
-    public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = attrService.queryPage(params);
-
-        return R.ok().put("page", page);
+    public MemberEntity list(@RequestParam Map<String, Object> params){
+        MemberEntity list = memberFeginService.list();
+        System.out.println(list);
+        return list;
     }
 
 
