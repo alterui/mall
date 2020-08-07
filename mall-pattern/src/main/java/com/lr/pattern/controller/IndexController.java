@@ -1,10 +1,9 @@
 package com.lr.pattern.controller;
 
+import com.lr.pattern.bean.Student;
 import com.lr.pattern.service.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author liurui
@@ -16,14 +15,12 @@ public class IndexController {
     @Autowired
     IndexService indexService;
 
-    @GetMapping("/index")
-    public Object getMenus(@RequestParam Integer version) {
-        Object menu = indexService.getMenu(version);
-        return menu;
+
+    @PostMapping("/get")
+    public void get(@RequestBody Student student) {
+        System.out.println(student);
+
     }
 
-    /**
-     *
-     */
 
 }
