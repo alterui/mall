@@ -9,12 +9,12 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class LockDemo {
 
-    static Lock lock = new ReentrantLock();
+    static Lock lock = new ReentrantLock(true);
 
     public static void main(String[] args) {
 
         new Thread(LockDemo::testSync, "t1").start();
-        new Thread(LockDemo::testSync, "t2").start();
+        //new Thread(LockDemo::testSync, "t2").start();
     }
 
     /**
@@ -28,6 +28,7 @@ public class LockDemo {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }finally {
+            System.out.println();
             lock.unlock();
         }
 
