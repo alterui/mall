@@ -90,8 +90,6 @@ public class MemberEntity implements Serializable {
     /**
      * 注册时间
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
 }
