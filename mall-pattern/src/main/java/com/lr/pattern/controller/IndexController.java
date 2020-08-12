@@ -3,11 +3,16 @@ package com.lr.pattern.controller;
 import com.lr.pattern.bean.Student;
 import com.lr.pattern.service.IndexService;
 import com.mysql.cj.util.StringUtils;
+import com.sun.tools.javah.LLNI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * @author liurui
@@ -22,13 +27,24 @@ public class IndexController {
 
     @PostMapping("/get")
     public void get(@RequestBody Student student) {
+
         System.out.println(student);
 
     }
 
     public static void main(String[] args) {
-        String s = filterEmoji("❗\uD83D\uDE1C\uD83D\uDC8B \uD83D\uDC40 \uD83D\uDE2A \uD83D\uDE11 \uD83D\uDCA5 \uD83D\uDE4B \uD83D\uDE1E \uD83D\uDE29 \uD83D\uDE21 \uD83E\uDD2A \uD83D\uDC4A ☀ \uD83D\uDE25 \uD83E\uDD24 \uD83D\uDC49 \uD83D\uDC83 \uD83D\uDE33 ✋ \uD83D\uDE1A \uD83D\uDE1D \uD83D\uDE34 \uD83C\uDF1F \uD83D\uDE2C \uD83D\uDE43 \uD83C\uDF40 \uD83C\uDF37 \uD83D\uDE3B \uD83D\uDE13 ⭐ ✅ \uD83C\uDF08 \uD83D\uDE08 \uD83E\uDD18对的");
-        System.out.println(s);
+        get();
+
+    }
+
+    static boolean get() {
+        List list2 = null;
+
+
+        List list1 = new ArrayList();
+        return list1.size() == list2.size() &&list1 .containsAll(list2) && list2.containsAll(list1);
+
+
     }
 
     public static String filterEmoji1(String str) {
