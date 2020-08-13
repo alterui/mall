@@ -18,6 +18,7 @@ public class MyLock implements Lock {
      */
     private static class Sync extends AbstractQueuedSynchronizer {
 
+
         //是否处于占用状态
         @Override
         protected boolean isHeldExclusively() {
@@ -83,4 +84,8 @@ public class MyLock implements Lock {
     }
 
 
+    public static void main(String[] args) {
+        String str = "dd";
+        System.out.println("dfsjakfdkl"+str+"dddd");
+    }
 }
