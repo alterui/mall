@@ -87,7 +87,7 @@ public class APP {
         JSONArray jsonArray = jsonObject.getJSONObject("hits").getJSONArray("hits");
 
         if (CollectionUtils.isEmpty(jsonArray)) {
-            list.add(kit.getMessage());
+            list.add(id);
             System.out.println(kit.getMessage());
         }
 
