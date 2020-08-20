@@ -16,8 +16,6 @@
         <module>mall-order</module>
         <module>mall-product</module>
         <module>mall-ware</module>
-        <module>renren-fast</module>
-        <module>renren-generator</module>
         <module>mall-common</module>
         <module>mall-gateway</module>
         <module>mall-es</module>
@@ -28,6 +26,8 @@
         <module>spring-source</module>
         <module>mall-concurrent</module>
         <module>spring-aop</module>
+        <module>mall-util</module>
+
     </modules>
 
 
