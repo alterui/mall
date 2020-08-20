@@ -3,7 +3,6 @@ package com.lr.pattern.controller;
 import com.lr.pattern.bean.Student;
 import com.lr.pattern.service.IndexService;
 import com.mysql.cj.util.StringUtils;
-import com.sun.tools.javah.LLNI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
