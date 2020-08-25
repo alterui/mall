@@ -5,17 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 /**
  * @author liurui
- * @date 2020/8/7 10:13 上午
+ * @date 2020/8/20 3:45 下午
  */
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student {
+public class StudentVO {
     private Integer age;
-    private Integer name;
 }
