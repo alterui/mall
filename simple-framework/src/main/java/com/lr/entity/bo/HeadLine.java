@@ -1,4 +1,4 @@
-package com.lr.entity;
+package com.lr.entity.bo;
 
 import lombok.Data;
 
