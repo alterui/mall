@@ -38,6 +38,8 @@ public class CategoryController {
     public R list() {
         List<CategoryEntity> categoryEntityList = categoryService.listWithTree();
         return R.ok().put("data", categoryEntityList);
+        //modelAndview
+        //json
     }
 
 
