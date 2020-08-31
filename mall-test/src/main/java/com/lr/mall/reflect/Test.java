@@ -25,7 +25,7 @@ public class Test extends Person<Student>{
         test.get();
         //test.getInfo();
 
-        try {
+        /*try {
             List<Class<?>> classes = ClassScanUtil.getClasses("com.lr.mall");
             String target = "aon";
             Optional<Class<?>> first = classes.stream().filter(e -> isTargetAnnotation(e, target)).findFirst();
@@ -41,7 +41,7 @@ public class Test extends Person<Student>{
 
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
 
     }

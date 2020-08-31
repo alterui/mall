@@ -17,8 +17,7 @@ import java.util.List;
 public class IndexController {
 
     public static void main(String[] args) {
-        Student student2 = new Student(1, 3);
-        Student student1 = new Student(2, 3);
+
 
         List<Student> list = new ArrayList<>();
 
