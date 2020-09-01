@@ -11,7 +11,5 @@ public class HpMouse implements Mouse {
         System.out.println("我是惠普鼠标");
     }
 
-    public static void main(String[] args) {
-        new DellMouse().get();
-    }
+
 }

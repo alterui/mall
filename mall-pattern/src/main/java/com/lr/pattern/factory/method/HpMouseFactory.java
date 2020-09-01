@@ -13,12 +13,5 @@ public class HpMouseFactory implements MouseFactory {
         return new HpMouse();
     }
 
-    public static void main(String[] args) {
-        String s = new String("d");
-        String s2 = "d";
-        String s3 = "d";
-        System.out.println(s.hashCode());
-        System.out.println(s2.equals(s3));
-        System.out.println(s==s2);
-    }
+
 }
