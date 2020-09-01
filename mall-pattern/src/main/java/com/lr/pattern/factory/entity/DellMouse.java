@@ -9,16 +9,11 @@ public class DellMouse implements Mouse {
 
     }
 
+
     @Override
     public void sayHi() {
         System.out.println("我是戴尔鼠标");
     }
 
-     void get() {
 
-    }
-
-    public static void main(String[] args) {
-        new DellMouse().get();
-    }
 }
