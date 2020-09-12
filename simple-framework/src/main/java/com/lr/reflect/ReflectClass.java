@@ -6,7 +6,7 @@ import java.util.stream.Stream;
  * @author liurui
  * @date 2020/9/5 16:11
  */
-public class ReflectClass {
+public class ReflectClass extends ReflectTargetOrigin {
     //(默认)的构造方法
     ReflectClass(String str) {
         System.out.println("(默认)的构造方法str=" + str);
@@ -36,5 +36,22 @@ public class ReflectClass {
         System.out.println("私有的构造方法，序号：" + index);
     }
 
+    //字段
+    private String name;
+    protected int index;
+    char type;
+    public String targetInfo;
 
+    @Override
+    public String toString() {
+        return "ReflectClass{" +
+                "name='" + name + '\'' +
+                ", index=" + index +
+                ", type=" + type +
+                ", targetInfo='" + targetInfo + '\'' +
+                ", defaultMember='" + defaultMember + '\'' +
+                ", publicMember='" + publicMember + '\'' +
+                ", protectedMember='" + protectedMember + '\'' +
+                '}';
+    }
 }
