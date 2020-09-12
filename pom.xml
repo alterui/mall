@@ -29,6 +29,9 @@
         <module>mall-util</module>
         <module>simple-framework</module>
         <module>mall-shiro</module>
+        <module>mall-jobboard</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
 
     </modules>
 
