@@ -1,6 +1,10 @@
 package com.lr.mall.utils;
 
-import java.util.Scanner;
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
+import com.lr.mall.controller.Student;
+import org.checkerframework.checker.units.qual.A;
+
+import java.util.*;
 
 /**
  * @author liurui
@@ -8,23 +12,15 @@ import java.util.Scanner;
  */
 public class Test {
     public static void main(String[] args) {
-        get(1, 0);
-    }
+        List<Student> list = new ArrayList<>();
+        list.add(new Student(1,1));
+        list.add(new Student(3,3));
+        list.add(new Student(5,5));
+        list.add(new Student(7,7));
 
-    public static int get(int a,int b) {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            try {
-                int sum = a / b;
-                break;
-            } catch (Exception e) {
-                System.out.println("除数不能为0，重新输入。。。");
-                 b = scanner.nextInt();
+        Collections.reverse(list);
 
-            }
+        list.forEach(System.out::println);
 
-
-        }
-        return a/b;
     }
 }
