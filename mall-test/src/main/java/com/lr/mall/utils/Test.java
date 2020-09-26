@@ -1,6 +1,5 @@
 package com.lr.mall.utils;
 
-import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.lr.mall.controller.Student;
 import org.checkerframework.checker.units.qual.A;
 

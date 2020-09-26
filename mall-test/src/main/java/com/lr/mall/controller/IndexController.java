@@ -1,6 +1,9 @@
 package com.lr.mall.controller;
 
 import com.alibaba.fastjson.JSON;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,20 +19,17 @@ import java.util.List;
 @RestController
 public class IndexController {
 
-    public static void main(String[] args) {
+    @Autowired
+    private CountNum countNum;
 
+    @GetMapping("/get")
 
-        List<Student> list = new ArrayList<>();
+    public void get() throws InterruptedException {
+        System.out.println("开始");
+        for (int i = 0; i < 3; i++) {
 
-
-
-
-
-        String string = JSON.toJSONString(list);
-        System.out.println(string);
-
-        List<StudentVO> studentVOList = JSON.parseArray(string, StudentVO.class);
-        System.out.println(JSON.toJSONString(studentVOList));
-
+           countNum.getWords();
+        }
+        System.out.println("end");
     }
 }

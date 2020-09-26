@@ -18,10 +18,6 @@ public class Student {
     private Integer age;
     private String name;
 
-    public static void main(String[] args) {
-        Student tom = new Student(1, "tom");
-        String otherJson = JSON.toJSONString(tom);
-        System.out.println(otherJson);
-    }
+   
 
 }
