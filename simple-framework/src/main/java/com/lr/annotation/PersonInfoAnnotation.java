@@ -12,7 +12,6 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-
 public @interface PersonInfoAnnotation {
     //名字
     String name();
@@ -25,8 +24,4 @@ public @interface PersonInfoAnnotation {
 
     //开发语言
     String[] language();
-
-
-
-
 }

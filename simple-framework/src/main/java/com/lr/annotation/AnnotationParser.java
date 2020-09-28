@@ -2,6 +2,7 @@ package com.lr.annotation;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.stream.Stream;
 
 /**
@@ -19,7 +20,6 @@ public class AnnotationParser {
         Annotation[] annotations = clazz.getAnnotations();
         Stream.of(annotations).forEach(System.out::println);
         //获取@CourseInfoAnnotation注解的value
-        System.out.println("====================================");
         Stream.of(annotations).forEach(e->{
             CourseInfoAnnotation courseInfoAnnotation = (CourseInfoAnnotation) e;
             System.out.println(courseInfoAnnotation);
@@ -39,10 +39,26 @@ public class AnnotationParser {
         });
     }
 
+    /**
+     * 解析方法上面的注解
+     * @throws Exception
+     */
+    public static void parseMethodAnnotation() throws Exception{
+        Class<?> clazz = Class.forName("com.lr.annotation.MyCourse");
+        Method[] declaredMethods = clazz.getDeclaredMethods();
+        Stream.of(declaredMethods).forEach(e->{
+            if (e.isAnnotationPresent(CourseInfoAnnotation.class)) {
+                System.out.println(e.getAnnotation(CourseInfoAnnotation.class));
+
+            }
+        });
+
+    }
+
 
 
 
     public static void main(String[] args) throws Exception{
-        parseFieldAnnotation();
+        parseMethodAnnotation();
     }
 }

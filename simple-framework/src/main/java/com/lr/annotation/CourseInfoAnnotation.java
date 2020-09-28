@@ -25,5 +25,4 @@ public @interface CourseInfoAnnotation {
     //课程序号
     int courseIndex() default 9;
 
-
 }
