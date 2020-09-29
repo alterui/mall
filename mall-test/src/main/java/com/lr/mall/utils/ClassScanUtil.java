@@ -77,4 +77,12 @@ public class ClassScanUtil {
             }
         }
     }
+
+    public static void main(String[] args) {
+        try {
+            getClasses("com.lr.mall");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

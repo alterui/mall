@@ -2,6 +2,7 @@ package com.lr.controller;
 
 import com.lr.controller.frontend.MainPageController;
 import com.lr.controller.superadmin.HeadLineOperationController;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +23,7 @@ public class DispatcherServlet extends HttpServlet {
         if (req.getServletPath().equals("/frontend/getmainpageinfo") && req.getMethod().equals("GET")) {
             new MainPageController().getMainPageInfo(req, resp);
         } else if (req.getServletPath().equals("/superadmin/addheadline") && req.getMethod().equals("GET")) {
+
             new HeadLineOperationController().addHeadLine(req, resp);
         }
 

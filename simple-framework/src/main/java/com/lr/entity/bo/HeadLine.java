@@ -1,6 +1,7 @@
 package com.lr.entity.bo;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,6 +12,7 @@ import java.util.Date;
  */
 
 @Data
+@Slf4j
 public class HeadLine implements Serializable {
     private Long lineId;
     private String lineName;
@@ -20,5 +22,11 @@ public class HeadLine implements Serializable {
     private Integer enableStatus;
     private Date createTime;
     private Date lastEditTime;
+
+    public static void main(String[] args) {
+        HeadLine headLine = new HeadLine();
+
+        System.out.println(headLine.getCreateTime());
+    }
 
 }

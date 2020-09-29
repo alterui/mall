@@ -8,6 +8,7 @@
 
 package com.lr.common.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 
 /**
@@ -15,6 +16,7 @@ import org.apache.commons.lang.StringUtils;
  *
  * @author Mark sunlightcs@gmail.com
  */
+@Slf4j
 public class SQLFilter {
 
     /**

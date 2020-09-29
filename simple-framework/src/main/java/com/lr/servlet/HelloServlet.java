@@ -1,5 +1,7 @@
 package com.lr.servlet;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,10 +14,13 @@ import java.io.IOException;
  * @date 2020/8/29 11:43
  */
 @WebServlet("/hello")
+@Slf4j
+
 public class HelloServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
+
         System.out.println("初始化servlet");
     }
 
