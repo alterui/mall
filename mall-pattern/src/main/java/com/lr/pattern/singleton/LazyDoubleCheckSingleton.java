@@ -27,4 +27,11 @@ public class LazyDoubleCheckSingleton {
         }
         return lazyDoubleCheckSingleton;
     }
+
+    public static void main(String[] args) {
+        System.out.println(LazyDoubleCheckSingleton.getInstance());
+        System.out.println(LazyDoubleCheckSingleton.getInstance());
+        System.out.println(LazyDoubleCheckSingleton.getInstance());
+        System.out.println(LazyDoubleCheckSingleton.getInstance());
+    }
 }
