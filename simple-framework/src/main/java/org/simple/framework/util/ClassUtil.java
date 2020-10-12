@@ -23,6 +23,10 @@ public class ClassUtil {
 
     /**
      * 扫描包下面所有的class
+     * 过程：
+     *  1. 获取到类的加载器
+     *  2. 通过类的加载器获取到加载的资源
+     *  3. 依据不同的资源类型，采用不同的方式获取资源的集合
      *
      * @param packageName
      * @return
