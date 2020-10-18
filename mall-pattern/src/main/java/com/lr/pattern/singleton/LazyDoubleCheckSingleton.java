@@ -1,5 +1,7 @@
 package com.lr.pattern.singleton;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 
 /**
@@ -33,5 +35,27 @@ public class LazyDoubleCheckSingleton {
         System.out.println(LazyDoubleCheckSingleton.getInstance());
         System.out.println(LazyDoubleCheckSingleton.getInstance());
         System.out.println(LazyDoubleCheckSingleton.getInstance());
+    }
+
+    public static void main(String[] args) throws Exception {
+        System.out.println(LazyDoubleCheckSingleton.getInstance());
+        System.out.println(LazyDoubleCheckSingleton.getInstance());
+
+        Class<LazyDoubleCheckSingleton> lazyDoubleCheckSingletonClass = LazyDoubleCheckSingleton.class;
+        Constructor<LazyDoubleCheckSingleton> constructor = lazyDoubleCheckSingletonClass.getDeclaredConstructor();
+        constructor.setAccessible(true);
+        LazyDoubleCheckSingleton lazyDoubleCheckSingleton = constructor.newInstance();
+        System.out.println(lazyDoubleCheckSingleton);
+
+        System.out.println("==========");
+        Integer integer1 = new Integer(2);
+        Integer integer2 = new Integer(2);
+        System.out.println(integer1 == integer2);
+        System.out.println(integer1.equals(integer2));
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+            return super.equals(obj);
     }
 }
