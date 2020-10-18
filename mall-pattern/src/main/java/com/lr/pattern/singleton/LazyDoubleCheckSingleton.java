@@ -30,12 +30,6 @@ public class LazyDoubleCheckSingleton {
         return lazyDoubleCheckSingleton;
     }
 
-    public static void main(String[] args) {
-        System.out.println(LazyDoubleCheckSingleton.getInstance());
-        System.out.println(LazyDoubleCheckSingleton.getInstance());
-        System.out.println(LazyDoubleCheckSingleton.getInstance());
-        System.out.println(LazyDoubleCheckSingleton.getInstance());
-    }
 
     public static void main(String[] args) throws Exception {
         System.out.println(LazyDoubleCheckSingleton.getInstance());
