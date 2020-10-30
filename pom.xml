@@ -33,6 +33,7 @@
         <module>renren-fast</module>
         <module>renren-generator</module>
         <module>thinking-in-spring</module>
+        <module>thinking-spring</module>
 
     </modules>
 
