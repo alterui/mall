@@ -1,10 +1,14 @@
 package com.lr.mall.utils;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author liurui
@@ -36,11 +40,12 @@ public class App {
     }
 
     public static void main(String[] args) {
-        try {
-            String str = downloadUrl("https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLzH7smibLpPvcXa7e3U30QLyDfIjt9O3icKfSkY6ao9gJQsic7aficzRBevGMFHeXkWLgquvG9hZgMNw/132");
-            System.out.println(str);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String json = "{\"url\":\"{\\\"testee_invite_result_list\\\":[{\\\"sn\\\":\\\"1301630333135\\\",\\\"test_url\\\":\\\"https://watsons.ceping.com/Login/Elink?elink=48kTUHQQRm9fChSEapGpp5mO4x9dmRqCyA4x4vMFFbOikmRDrLFw0Q==&v=1 \\\"}]}\"}";
+
+        JSONObject jsonObject = JSONObject.parseObject(json, JSONObject.class);
+        Object testee_invite_result_list = jsonObject.get("testee_invite_result_list");
+        System.out.println(testee_invite_result_list);
+
+
     }
 }

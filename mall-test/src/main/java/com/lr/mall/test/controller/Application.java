@@ -1,8 +1,7 @@
 package com.lr.mall.test.controller;
 
 
-import java.util.*;
-import java.util.stream.Collectors;
+import org.redisson.api.RedissonClient;
 
 /**
  * @author liurui
@@ -10,5 +9,7 @@ import java.util.stream.Collectors;
  */
 public class Application extends S3 implements S1, S2 {
 
+    public static void main(String[] args) {
 
+    }
 }

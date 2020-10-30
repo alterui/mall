@@ -20,9 +20,8 @@ public class CDApplication {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CDPlayerConfig.class);
-        Map<String, Animal> beansOfType = context.getBeansOfType(Animal.class);
-        Animal animal = beansOfType.get("cat");
-        beansOfType.forEach((k, v) -> System.out.println("K:" + k + ",V:" + v));
+        Animal bean = context.getBean(Animal.class);
+        System.out.println(bean);
 
 
     }

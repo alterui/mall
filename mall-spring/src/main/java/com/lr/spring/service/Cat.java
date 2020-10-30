@@ -9,9 +9,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Data
-public class Cat implements Animal {
-    @Override
-    public void eat() {
+public class Cat  {
 
-    }
 }
