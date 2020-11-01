@@ -73,6 +73,12 @@
             <artifactId>redisson</artifactId>
             <version>2.15.1</version>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.17</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
