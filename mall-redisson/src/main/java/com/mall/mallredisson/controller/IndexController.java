@@ -5,14 +5,19 @@ import io.micrometer.core.instrument.util.StringUtils;
 import io.micrometer.core.lang.Nullable;
 import org.apache.catalina.core.ApplicationContext;
 import org.redisson.api.RLock;
+import org.redisson.api.RReadWriteLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -25,6 +30,9 @@ public class  IndexController {
 
     @Autowired
     private RedissonClient redissonClient;
+
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
 
     @GetMapping("/index")
     public String index() {
@@ -55,6 +63,45 @@ public class  IndexController {
 
         }
         return "index";
+    }
+
+    @GetMapping("/writer")
+    public String writer() {
+
+        RReadWriteLock readWriteLock = redissonClient.getReadWriteLock("wd-lock");
+        RLock rLock = readWriteLock.writeLock();
+        rLock.lock(30, TimeUnit.SECONDS);
+
+        try {
+            stringRedisTemplate.opsForValue().set("writerValue", UUID.randomUUID().toString());
+            Thread.sleep(30000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            rLock.unlock();
+        }
+
+        return "writer";
+
+    }
+
+    @GetMapping("/reader")
+    public String reader() {
+
+        RReadWriteLock readWriteLock = redissonClient.getReadWriteLock("wd-lock");
+        RLock rLock = readWriteLock.readLock();
+        rLock.lock(30, TimeUnit.SECONDS);
+        String writerValue = "";
+        try {
+            writerValue  = stringRedisTemplate.opsForValue().get("writerValue");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            rLock.unlock();
+        }
+
+        return writerValue;
+
     }
 
 
