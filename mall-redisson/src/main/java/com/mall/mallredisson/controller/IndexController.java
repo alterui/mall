@@ -4,13 +4,12 @@ import com.mall.mallredisson.model.User;
 import io.micrometer.core.instrument.util.StringUtils;
 import io.micrometer.core.lang.Nullable;
 import org.apache.catalina.core.ApplicationContext;
-import org.redisson.api.RLock;
-import org.redisson.api.RReadWriteLock;
-import org.redisson.api.RedissonClient;
+import org.redisson.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.Time;
@@ -18,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -65,6 +65,15 @@ public class  IndexController {
         return "index";
     }
 
+    /**
+     * 读写锁
+     * 读写，写读，写写都是会加锁等待的，
+     * 只有读读不会等待。
+     *
+     * 使用场景：读多写少的场景
+     *
+     * @return
+     */
     @GetMapping("/writer")
     public String writer() {
 
@@ -94,6 +103,7 @@ public class  IndexController {
         String writerValue = "";
         try {
             writerValue  = stringRedisTemplate.opsForValue().get("writerValue");
+            Thread.sleep(30000);
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
@@ -103,6 +113,63 @@ public class  IndexController {
         return writerValue;
 
     }
+
+    /**
+     * 车库停车
+     * 3车位
+     *
+     * @return
+     */
+    @GetMapping("/park")
+    public String park() {
+        //这个相当于在redis get park，因此我们要事先在redis里面set value。
+        RSemaphore park = redissonClient.getSemaphore("park");
+        // park.acquire();//这个会堵塞式获取，直到有别人释放
+        /**
+         * 尝试获取,没有获取到就返回一个error页面，因此可以做分布式限流
+         */
+        boolean b = park.tryAcquire();
+        if (b) {
+            //执行业务
+        } else {
+            return "error";
+        }
+        return "ok";
+    }
+
+    @GetMapping("/park1")
+    public String park1() {
+        /**
+         * Semaphore是一种基于技术的信号量，它可以设定一个阈值，低于阈值可以执行，高于阈值则需要等待。
+         */
+        Semaphore semaphore = new Semaphore(0);
+        semaphore.tryAcquire();
+        return "ok";
+    }
+
+    /**
+     * 放假，锁门
+     * 只有所有的人都走完了，才能锁门
+     */
+    @GetMapping("/lockDoor")
+    public String lockDoor() {
+        RCountDownLatch door = redissonClient.getCountDownLatch("door");
+        door.trySetCount(5);
+        try {
+            door.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "放假了";
+    }
+
+    @GetMapping("/gogo/{id}")
+    public String gogogo(@PathVariable("id") Long id) {
+        RCountDownLatch door = redissonClient.getCountDownLatch("door");
+        door.countDown();
+        return id + "班级的走了";
+    }
+
 
 
 

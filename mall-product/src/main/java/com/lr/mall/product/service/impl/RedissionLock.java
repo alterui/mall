@@ -18,24 +18,29 @@ public class RedissionLock {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
     /**
      * 注意点：
-     *    1.设置key的过期时间必须和加锁是同步的
-     *    2.
+     * 1.设置key的过期时间必须和加锁是同步的
+     * 2.
      *
      * @return
      */
     public List<CategoryEntity> listWithTreeFromDBWithRedisLock() {
         /**
          * 1. set key value EX 300 NX (只有这个key不存在的时候，才设置key的有效期为300s)
+         * 设置UUID的原因：代码还没运行完，这个时候key失效了，那么执行到finally的时候就会del key，这样就会把新进来的key给删除掉了，所以每次进来都给他生成一个新的uuid。
          */
         String uuid = UUID.randomUUID().toString();
         Boolean lock = redisTemplate.opsForValue().setIfAbsent("lock", uuid, 300, TimeUnit.MINUTES);
 
-        if (lock!=null && lock) {
-            List<CategoryEntity> categoryEntityList;
+        if (lock != null && lock) {
+
             try {
-                //categoryEntityList = listWithTreeFromDB();
+                //执行业务代码
+                Thread.sleep(30000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             } finally {
                 /**
                  * 2.这样删除不能够保证原子删除操作。
