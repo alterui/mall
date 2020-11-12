@@ -34,6 +34,7 @@
         <module>renren-generator</module>
         <module>thinking-in-spring</module>
         <module>thinking-spring</module>
+        <module>java-virtual-machine</module>
 
     </modules>
 

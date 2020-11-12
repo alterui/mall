@@ -17,5 +17,5 @@ import java.util.Date;
 @NoArgsConstructor
 public class Student {
     private Integer age;
-    private Integer name;
+    private String name;
 }
