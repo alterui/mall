@@ -10,22 +10,6 @@ import java.util.concurrent.CountDownLatch;
  */
 public class Applicaiton {
     public static void main(String[] args) {
-        CountDownLatch countDownLatch = new CountDownLatch(8);
-
-        List<Integer> list = new CopyOnWriteArrayList<>();
-        for (int i = 0; i < 1000; i++) {
-            list.add(i);
-        }
-        list.parallelStream().forEach(e->{
-            list.add(e);
-            System.out.println(e);
-            countDownLatch.countDown();
-        });
-        try {
-            countDownLatch.await();
-        } catch (InterruptedException e) {
-        }
-        System.out.println("结束");
 
     }
 }

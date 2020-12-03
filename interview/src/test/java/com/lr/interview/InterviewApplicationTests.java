@@ -1,15 +1,13 @@
-package com.lr.mall.test;
+package com.lr.interview;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
 @SpringBootTest
-class MallTestApplicationTests {
+class InterviewApplicationTests {
 
     @Test
     void contextLoads() {
-
     }
 
 }

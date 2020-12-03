@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2020/5/30 16:58
  */
 @FeignClient(name = "mall-coupon")
-public interface CouponFeignService {
+public interface CouponFeignService extends MemberFeginService{
 
     @RequestMapping("/coupon/memberprice/info/{id}")
     R info(@PathVariable("id") Long id);
