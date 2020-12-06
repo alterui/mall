@@ -43,7 +43,7 @@ public class Application {
          *
          */
 
-        /**
+       /* *
          * 七大参数：
          *       int corePoolSize：核心线程数;一直存在的(除非设置了allowCoreThreadTimeOut属性)线程池创建完以后就准备就绪的线程数量，等待来接收异步任务执行。
          *       int maximumPoolSize：线程池里面最大的线程数量，控制资源并发的。
@@ -67,7 +67,7 @@ public class Application {
          *
          *
          *
-         */
+*/
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
                 5,
                 200,
