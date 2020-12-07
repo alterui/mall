@@ -35,6 +35,7 @@
         <module>thinking-in-spring</module>
         <module>thinking-spring</module>
         <module>java-virtual-machine</module>
+      <module>mybatis-demo</module>
 
     </modules>
 

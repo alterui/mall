@@ -1,4 +1,4 @@
-package com.lr.jvm.java;
+package com.lr.jvm.java.chapter01;
 
 /**
  * @author liurui
