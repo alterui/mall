@@ -2,10 +2,8 @@ package com.lr.util.controller;
 
 import com.lr.util.bean.PositionCustomReq;
 import com.lr.util.bean.Result;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -17,10 +15,16 @@ import javax.validation.Valid;
 @RestController
 public class IndexController {
 
-    @GetMapping("/get")
-    public Result get(@Valid PositionCustomReq positionCustomReq) {
+    @PostMapping("/get")
+    public Result get(@RequestBody @Valid PositionCustomReq positionCustomReq) {
         System.out.println(positionCustomReq);
         return Result.getSuccessResult();
     }
 
+
+    @GetMapping("/get1")
+    public Result get1( @Valid PositionCustomReq positionCustomReq) {
+        System.out.println(positionCustomReq);
+        return Result.getSuccessResult();
+    }
 }
