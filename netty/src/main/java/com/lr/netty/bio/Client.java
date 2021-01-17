@@ -13,10 +13,11 @@ import java.util.Scanner;
 public class Client {
     public static void main(String[] args) throws Exception{
         Socket socket = new Socket();
-        socket.connect(new InetSocketAddress(8080));
+        socket.connect(new InetSocketAddress(8081));
         Scanner scanner = new Scanner(System.in);
         while (true) {
             String next = scanner.next();
+            System.out.println("发送消息："+next);
             //发送消息
             socket.getOutputStream().write(next.getBytes());
 
