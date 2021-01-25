@@ -5,6 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,5 +15,6 @@ import java.util.Map;
 @FeignClient(name = "mall-member")
 public interface MemberFeginService {
     @RequestMapping("member/growthchangehistory/list")
-    MemberEntity  list();
+    MemberEntity list(@RequestParam("list") List<Integer> list,
+                      @RequestParam("city") String city);
 }

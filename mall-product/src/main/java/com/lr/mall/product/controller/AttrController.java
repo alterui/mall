@@ -1,6 +1,8 @@
 package com.lr.mall.product.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -30,23 +32,23 @@ public class AttrController {
     private AttrService attrService;
 
     @Autowired
-    private MemberFeginService memberFeginService;
+    private MemberFeginService feginService;
+    @GetMapping("/get")
+    public void get() {
+        MemberEntity memberEntity = new MemberEntity();
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(3);
+        list.add(4);
 
-    @PostMapping("/get")
-    public void get(@RequestBody MemberEntity entity) {
-        System.out.println(entity);
+        memberEntity.setList(list);
+        memberEntity.setCity("sx");
+
+        feginService.list(list, memberEntity.getCity());
+        System.out.println();
     }
 
-    /**
-     * 列表
-     */
-    @RequestMapping("/list")
-    //@RequiresPermissions("product:attr:list")
-    public MemberEntity list(@RequestParam Map<String, Object> params){
-        MemberEntity list = memberFeginService.list();
-        System.out.println(list);
-        return list;
-    }
+
 
 
     /**

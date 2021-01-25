@@ -12,6 +12,9 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.security.RunAs;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -22,6 +25,10 @@ class MallProductApplicationTests {
 
     @Autowired
     BrandService brandService;
+
+    @Autowired
+    DataSource dataSource;
+
 
     @Autowired
     private StringRedisTemplate redisTemplate;
@@ -38,7 +45,9 @@ class MallProductApplicationTests {
 
 
     @Test
-    void contextLoads() {
+    void contextLoads() throws SQLException {
+        Connection connection1 = dataSource.getConnection();
+
 
         List<BrandEntity> list = brandService.list(new QueryWrapper<BrandEntity>().eq("brand_id", 6L));
 

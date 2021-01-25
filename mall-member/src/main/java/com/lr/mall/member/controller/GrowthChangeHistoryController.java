@@ -39,9 +39,9 @@ public class GrowthChangeHistoryController {
      * 列表
      */
     @RequestMapping("/list")
-    public MemberEntity list(){
+    public MemberEntity list(MemberEntity memberEntity1){
 
-        MemberEntity memberEntity = new MemberEntity();
+        MemberEntity memberEntity = memberEntity1;
         SimpleDateFormat format = new SimpleDateFormat("yyy-MM-dd HH:mm:ss");
         try {
             Date date = format.parse("2020-08-06 19:56:23");

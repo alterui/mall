@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author liurui
@@ -91,6 +92,8 @@ public class MemberEntity  {
      * 注册时间
      */
     private Date createTime;
+
+    private List<Integer> list;
 
 }
 

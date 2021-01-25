@@ -1,11 +1,9 @@
 package com.lr.mall.test;
 
 import com.alibaba.fastjson.JSON;
+import lombok.AllArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
@@ -14,14 +12,38 @@ import java.util.stream.Collectors;
  * @author liurui
  * @date 2020/10/25 17:32
  */
+@AllArgsConstructor
 public class Test {
+
+    private String name;
+    private Integer age;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Test test = (Test) o;
+        return Objects.equals(name, test.name) &&
+                Objects.equals(age, test.age);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
 
 
     public static void main(String[] args) {
 
-        String str = null;
+        Test test1 = new Test("1", 1);
+        Test test2 = new Test("1", 333);
+        System.out.println(test1.hashCode());
+        System.out.println(test2.hashCode());
 
-        System.out.println(str.contains(""));
+        System.out.println(test2.equals(test1));
+
+
 
     }
 
