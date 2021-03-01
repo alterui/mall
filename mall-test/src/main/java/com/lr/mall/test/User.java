@@ -13,46 +13,27 @@ import java.util.Date;
  * @author liurui
  * @date 2020/11/17 5:18 下午
  */
-@Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class User {
-    private String name;
-    private Integer age;
-    private String address;
-
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", address='" + address + '\'' +
-                '}';
-    }
-
-    public static boolean hasValidAddress(String address) {
-        if (address == null) // checks if the String is null {
-            return false;
-        int len = address.trim().length();
-        if (len == 0) return false;
-        else return true;
-    }
-
     public static void main(String[] args) {
-        //1871
-        System.out.println("1");
-        System.out.println("2");
-        System.out.println("3");
-        System.out.println("4");
-        System.out.println("5");
+        int a =1;
+        int b = 0;
+        switch (a) {
+            case 1:
+                b =1;
 
 
-        System.out.println("1");
-        System.out.println("2");
-        System.out.println("3");
-        System.out.println("4");
-        System.out.println("5");
+            case 3:
+                b =3;
+                System.out.println("这里执行了");
 
+
+            default:
+                b = 333;
+
+        }
+
+        System.out.println(b);
     }
+
 }
