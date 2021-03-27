@@ -5,18 +5,18 @@ import io.micrometer.core.instrument.util.StringUtils;
 import io.micrometer.core.lang.Nullable;
 import org.apache.catalina.core.ApplicationContext;
 import org.redisson.api.*;
+import org.redisson.misc.Hash;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -35,8 +35,14 @@ public class  IndexController {
     private StringRedisTemplate stringRedisTemplate;
 
     @GetMapping("/index")
-    public String index() {
+    public String index(Model model) {
         RLock lock = redissonClient.getLock("lock");
+
+
+
+        model.addAttribute("key", new HashMap());
+
+
         /**
          * 1.阻塞式等待:默认加锁的时间是30s
          * 1). 看门狗策略：
