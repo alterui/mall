@@ -33,6 +33,7 @@
         <module>thinking-in-spring</module>
         <module>thinking-spring</module>
         <module>netty</module>
+        <module>jdk8</module>
 
     </modules>
 
