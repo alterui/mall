@@ -11,6 +11,8 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * @author liurui
@@ -115,6 +117,27 @@ public class Application {
 
         return resultList;
     }
+
+    @Test
+    public void test9() {
+        Supplier<User> userSupplier = User::new;
+
+        System.out.println(userSupplier.get());
+
+
+    }
+
+    @Test
+    public void test10() {
+        List<Integer> list = Arrays.asList(1, 2, 4, 5);
+        List list2 = new ArrayList();
+        list2.add(132131);
+        list2.addAll(list);
+
+        list2.forEach(System.out::println
+        );
+    }
+
 
 
 
