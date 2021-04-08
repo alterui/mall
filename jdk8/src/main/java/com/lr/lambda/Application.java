@@ -23,11 +23,11 @@ public class Application {
     @Test
     public void test1() {
         List<User> userList = Arrays.asList(
-                new User(12, "zs", 888.0),
-                new User(44, "ls", 666.0),
-                new User(15, "wz", 999.0),
-                new User(9, "zq", 777.0),
-                new User(35, "tb", 555.0)
+                new User(12, "zs", 888.0, User.Status.BUSY),
+                new User(44, "ls", 666.0,User.Status.FREE),
+                new User(15, "wz", 999.0,User.Status.BUSY),
+                new User(9, "zq", 777.4,User.Status.VOCATION),
+                new User(35, "tb", 555.0,User.Status.BUSY)
 
         );
         List<User> list = filterAge(userList, new UserAgeFilter());
@@ -137,6 +137,8 @@ public class Application {
         list2.forEach(System.out::println
         );
     }
+
+
 
 
 

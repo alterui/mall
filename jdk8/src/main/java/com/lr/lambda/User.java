@@ -16,4 +16,12 @@ public class User {
     private Integer age;
     private String name;
     private Double salary;
+    private Status status;
+
+    public enum Status{
+        FREE,
+        BUSY,
+        VOCATION;
+    }
 }
+
