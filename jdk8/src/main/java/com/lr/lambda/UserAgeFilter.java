@@ -7,6 +7,7 @@ package com.lr.lambda;
 public class UserAgeFilter implements MyComparator<User> {
 
     public Boolean comparator(User user) {
+        //add
         return user.getAge() >= 35;
     }
 }
